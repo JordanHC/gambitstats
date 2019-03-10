@@ -16,18 +16,20 @@ app
     const resolver = new Resolver();
 
     server.get("/api/getGambitStats/", (req, res) => {
-      axios(getGambitStats, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          "X-API-Key": apiKey
-        },
-        params: {
-          modes: 63
-        }
-      }).then(response => {
-        res.send(response.data.Response.pvecomp_gambit.allTime);
-      });
+      resolver
+        .get("gambitstats", {
+          urlParams: {
+            platform: 1,
+            membershipId: "4611686018430012891",
+            character: 0
+          },
+          queryParams: {
+            modes: 63
+          }
+        })
+        .then(response => {
+          res.send(response.data.Response.pvecomp_gambit.allTime);
+        });
     });
 
     server.get("/api/getProfile/", (req, res) => {

@@ -16,6 +16,7 @@ class Resolver {
       return this.returnError("Invalid Entity", 400);
     }
     const requestInstance = this.generateRequestInstance(entity, options);
+    console.log(requestInstance);
     return axios(requestInstance);
   }
 
@@ -25,6 +26,7 @@ class Resolver {
   }
 
   verifyEntity(entity) {
+    console.log(entity);
     return this.entities.includes(entity.toLowerCase());
   }
 
@@ -59,8 +61,9 @@ class Resolver {
   }
 
   gambitStatsUrl(params) {
-    return `${this.baseUrl}/${params.platform}/Account/
-            ${params.membershipId}/Character/${params.character}/Stats`;
+    return `${this.baseUrl}/${params.platform}/Account/${
+      params.membershipId
+    }/Character/${params.character}/Stats`;
   }
 }
 
