@@ -1,4 +1,4 @@
-const apiUrl = 'https://www.bungie.net/Platform/Destiny2';
+const apiUrl = "https://www.bungie.net/Platform/Destiny2";
 const apiKey = process.env.API_KEY;
 
 const getPlayer = `${apiUrl}/SearchDestinyPlayer/1/deafslifer`;
@@ -11,4 +11,4 @@ module.exports = {
   getPlayer,
   getProfile,
   getGambitStats
-}
+};
