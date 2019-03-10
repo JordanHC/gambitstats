@@ -42,7 +42,10 @@ app
           }
         })
         .then(response => {
-          res.send(response.data);
+          res.send(
+            response.data.Response.characterProgressions.data[firstCharacterId]
+              .progressions["2772425241"]
+          );
         });
     });
 
