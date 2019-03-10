@@ -33,10 +33,10 @@ app.prepare().then(() => {
     resolver.get("profile", {
       urlParams: {
         platform: 1,
-        membershipId: 4611686018430012891
+        membershipId: '4611686018430012891'
       },
       queryParams: {
-        "components": "100,202"
+        components: "100,202"
       }
     }).then(response => {
       res.send(response.data);

@@ -14,7 +14,7 @@ class Resolver {
   get( entity, options = {} ) {
     if (!this.verifyEntity(entity)) return this.returnError('Invalid Entity', 400);
     const requestInstance = this.generateRequestInstance( entity, options )
-    console.log(requestInstance);
+    // console.log(requestInstance);
     return axios(requestInstance);
   }
 
@@ -29,25 +29,23 @@ class Resolver {
 
   generateRequestInstance(entity, options) {
     let url = this.getUrl(entity, options);
-    console.log(url);
     return {
-      "method": "GET",
-      "headers": this.requestHeaders,
-      "url": url,
-      "params": options.queryParams
+      method: "GET",
+      headers: this.requestHeaders,
+      url: url,
+      params: options.queryParams
     }
   }
 
-  getUrl(entity, options) {
+  getUrl(entity, { urlParams }) {
     if (entity === 'player') {
-      return this.playerUrl( options.urlParams )
+      return this.playerUrl( urlParams )
     }
     else if (entity === 'profile') {
-      console.log(options.urlParams);
-      return this.profileUrl( options.urlParams );
+      return this.profileUrl( urlParams );
     }
     else {
-      return this.gambitStatsUrl( options.urlParams );
+      return this.gambitStatsUrl( urlParams );
     }
   }
 

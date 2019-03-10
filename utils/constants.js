@@ -7,6 +7,7 @@ const getGambitStats = `${apiUrl}/1/Account/4611686018430012891/Character/0/Stat
 
 module.exports = {
   apiKey,
+  apiUrl,
   getPlayer,
   getProfile,
   getGambitStats
